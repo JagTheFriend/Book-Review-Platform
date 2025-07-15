@@ -1,8 +1,45 @@
-```
-npm install
-npm run dev
+# Book Review Platform Backend
+
+## Prequisites
+
+- Node.js
+- PostgreSQL
+
+## Get Started
+
+1. Create `.env` file in the root directory and add the following variables:
+
+```bash
 ```
 
+2. Install dependencies:
+
+```bash
+npm install
 ```
-open http://localhost:3000
+
+3. Push schema to database:
+
+```bash
+npm run db:push
+```
+
+4. Push dummy data to database: (optional)
+
+```bash
+npm run db:seed
+```
+
+5. Run the development server:
+
+```bash
+npm run dev:server
+```
+
+### Note
+
+You can run both **frontend** and **backend** in development mode by running the following command:
+
+```bash
+npm run prod
 ```
