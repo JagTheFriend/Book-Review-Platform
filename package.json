@@ -2,10 +2,13 @@
   "name": "book-review-platform",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev:server": "tsx watch src/index.ts",
+    "dev:client": "cd frontend && npm run dev",
+    "prod": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     "build": "tsc",
     "start": "node dist/index.js",
     "postinstall": "prisma generate",
+    "db:seed": "tsx ./prisma/seed.ts",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
     "db:studio": "prisma studio"
@@ -14,6 +17,7 @@
     "@hono/node-server": "^1.16.0",
     "@hono/zod-validator": "^0.7.1",
     "@prisma/client": "^6.11.1",
+    "concurrently": "^9.2.0",
     "hono": "^4.8.5",
     "zod": "^4.0.5"
   },

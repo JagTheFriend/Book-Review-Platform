@@ -1,10 +1,16 @@
 import { serve } from '@hono/node-server'
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
-import z, { string } from 'zod'
+import z from 'zod'
 import { db } from './db.js'
+import { cors } from 'hono/cors'
 
 const app = new Hono()
+
+app.use(cors({
+  origin: '*'
+}))
+
 
 app.get('/', (c) => {
   return c.text('Hello Hono!')
@@ -13,8 +19,8 @@ app.get('/', (c) => {
 // Retrieve all books with pagination
 app.get("/books",
   zValidator("query", z.object({
-    skip: z.number().min(0).default(0),
-    limit: z.number().min(1).max(50).default(10)
+    skip: z.string().transform(s => parseInt(s)),
+    limit: z.string().transform(s => parseInt(s))
   })),
   async (c) => {
     const { skip, limit } = c.req.valid('query')
