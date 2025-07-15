@@ -1,5 +1,5 @@
 
-const API_BASE_URL = import.meta.env.VITE_PUBLIC_API_BASE_URL ?? '';
+const API_BASE_URL = import.meta.env.VITE_PUBLIC_API_BASE_URL ?? 'https://book-review-platform-backend-9her.onrender.com';
 
 interface ApiResponse<T> {
   data: T;

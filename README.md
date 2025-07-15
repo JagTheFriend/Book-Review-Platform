@@ -1,11 +1,16 @@
 # Book Review Platform Backend
 
-## Prequisites
+## Objective
+
+Develop a book review platform where users can browse books, read and write reviews, and
+rate books.
+
+### Prequisites
 
 - Node.js
 - PostgreSQL
 
-## Get Started
+### Get Started
 
 1. Create `.env` file in the root directory and add the following variables:
 
